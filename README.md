@@ -25,28 +25,28 @@ Overview
 --------
 
 Processors:
-	- Raspberry Pi 3 with Camera Module V2
-	- Arduino Uno with Adafruit Motor Shield V2
+- Raspberry Pi 3 with Camera Module V2
+- Arduino Uno with Adafruit Motor Shield V2
 
 Motors:
-	- Nema 17 stepper; 200 steps; 12V 
-	- DC gear motor; 10rpm; 12V
+- Nema 17 stepper; 200 steps; 12V 
+- DC gear motor; 10rpm; 12V
 
 3d printing:
-	- Original Prusa i3 Mk2 using PLA
+- Original Prusa i3 Mk2 using PLA
 
 LED:
-	- Adafruit NeoPixel Jewel w/ 7 RGBW leds
+- Adafruit NeoPixel Jewel w/ 7 RGBW leds
 
 Software:
-	- Pi3
-		- Raspian (Debian linux) OS
-		- Python3
-		- PiCamera lib, OpenCV 3.1 Python wrapper, PyQt5
-	- Arduino
-		- Adafruit MotorShield and NeoPixel Arduino libraries
-	- 3d modelling on Freecad 16 + Prusa version of Slic3r
-	- Blender for post-processing
+- Pi3
+	- Raspian (Debian linux) OS
+	- Python3
+	- PiCamera lib, OpenCV 3.1 Python wrapper, PyQt5
+- Arduino
+	- Adafruit MotorShield and NeoPixel Arduino libraries
+- 3d modelling on Freecad 16 + Prusa version of Slic3r
+- Blender for post-processing
 
 
 The RPi3 with picamera attached is the "head" running a simple-ish python program "super8scan".  The Arduino Uno is attached to the RPi3 by USB serial connection.  RPi3's program captures an image and analyzes it using OpenCV functions to find perforations.  With the perf found the program crops and saves the frame image to the RPi3 SD card and adjusts the number of steps for the next frame advance if the perforation begins to run "high" or "low".
