@@ -5,9 +5,11 @@ super8scan Project
 Introduction
 ------------
 
-A hobbyist level (retired accountant) effort to cobble together inexpensive processors, an assortment of small motors, several 3D printed parts and scrap wood into something capable of digitizing a small collection of Super8mm family vacation and holiday films I took in the early 70's.  Films have been in a box in the closet unseen for over 35 years, but appear to be in excellent physical condition.
+A hobbyist's (retired accountant) effort to assemble inexpensive processors and camera, assorted small motors, several 3D printed parts and scrap wood into something capable of digitizing a small collection of Super8mm films from the early 70's.  Films have been in a box in the closet unseen for over 35 years, but appear to be in excellent physical condition.
 
-While this is a comparatively low budget effort, sending the reels off to BigBoxStore etc would get the job done for substantially less time and $$.  The justification for taking this path is full control over quality choices and a chance to tinker.
+While this is a comparatively low budget effort, sending the reels off to BigBoxStore etc would yield DVDs for substantially less time and $$.  My justification for taking this path is simply to tinker with 3D modelling and printing, lenses & cameras, gears, microcomputers / processors and python.
+
+The result works, but is inefficient and sloppy, containing a number of abandoned paths from past versions.  It is also very "bare bones", with no setup script, no rewind etc.  Not an issue for me given small inventory of film, but definitely an issue for someone needing more throughput.
 
 Mechanically, my choices clearly suffer from Maslow's hammer ("if all you have is a hammer, everything looks like a nail"), except in my case the hammer is a 3d printer.  
 
@@ -20,47 +22,42 @@ I've studied the following similar-ish efforts closely and taken ideas from them
 - https://therobotfish.com/projects/digital-telecine/
 - http://www.mets-telecinesystem.co.uk/
 
-
 Overview
 --------
 
-Processors:
-- Raspberry Pi 3 with Camera Module V2
-- Arduino Uno with Adafruit Motor Shield V2
+The capture device is freestanding and limited functionally to capturing raw bayer data images of each frame.  Images are saved to the Pi3's microSD system card (128G).  Python code is single threaded at this stage and system runs at a little over 2 seconds / frame.  Film is advanced by a stepper motor's drive wheel with 2mm O-rings set into it and an opposing pinch wheel.  Film tension is maintained by gravity via two arms mounted on potentiometers that ride up/down as film advances. The changing voltage is read by the Arduino to trigger motors connected to the feed and takeup reels.
 
-Motors:
-- Nema 17 stepper; 200 steps; 12V 
-- DC gear motor; 10rpm; 12V
+Stepping to advance film is calculated on the Pi by grabbing the greyscale bayer data image, threshholding (via OpenCV) a small vertical roi where the sprocket hole should in general be found and grabbing the average Y value of the white pixels.  Stepping info sent to Arduino over serial connection to trigger next frame.  This only works on film with black around the sprockets, but that's all I have.  Calculated steps keep each frame's center within 50 pixels or so above /below image center.  
 
-3d printing:
-- Original Prusa i3 Mk2 using PLA
+Once capture is complete, microSD card goes via sneakernet to my desktop booted into Arch Linux.  Images copy to desktop's hard drive at approximately 20MBytes / sec which is considerably faster than my wifi network's transfer rate.
 
-LED:
-- Adafruit NeoPixel Jewel w/ 7 RGBW leds
+Once on the desktop in NTFS partitions, I batch process the raw image sequences into demoisaiced RGB tiff sequences using dcraw.  These images in turn pass through a python script which locates the sprocket hole again and crops relative to the hole's location, saving a 2066x1550 tiff.
 
-Software:
-- Pi3
-	- Raspian (Debian linux) OS
-	- Python3
-	- PiCamera lib, OpenCV 3.1 Python wrapper, PyQt5
-- Arduino
-	- Adafruit MotorShield and NeoPixel Arduino libraries
-- 3d modelling on Freecad 16 + Prusa version of Slic3r
-- Blender for post-processing
+I'm currently using DaVinci Resolve (freebie for non-com use version 12.5) in Windows 10 to cut and paste image sequences into video segments and do all color correction, including I hope masking out the purple fringe that's very noticeable against certain backgrounds.  Resolve also has an incredible tracker that makes stabilization dead simple.  From Resolve I output color corrected / stabilized DPX image sequences which are then encoded with ffmpeg.
 
+Gear Used
+--------
+Freestanding Capture Thing:
+- Raspberry Pi 3 with Arducam 5MP OV5647 cam (M12 mount)
+- M12 lens; 12mm focal length mounted separately in a threaded tube for magnification and focusing
+- Arduino Uno with Adafruit Motor Shield V2 - drives stepper and two DC motors - serial connection / power via Rpi3 USB
+- Stepper motor - 12v / 200 steps connected to homemade 16x reduction gear box (awful...buy geared stepper or figure out microstepping on this driver)
+- Light source is an 8x2 diy matrix of 5mm clear white leds powered by 4 to 5 volts dc from an adjustable power supply; adjusting voltage allows rough brightness control; diffusion currently from reflected light in something of a leaky integrating sphere
 
-The RPi3 with picamera attached is the "head" running a simple-ish python program "super8scan".  The Arduino Uno is attached to the RPi3 by USB serial connection.  RPi3's program captures an image and analyzes it using OpenCV functions to find perforations.  With the perf found the program crops and saves the frame image to the RPi3 SD card and adjusts the number of steps for the next frame advance if the perforation begins to run "high" or "low".
-
-The RPi3 then sends a simple commmand string to the Arduino to advance the film # of steps.  The sketch running on the Arduino watches the serial port for characters and parses them.  
-
-The Arduino handles all motor, LED and sensor functions.  The only sensor at present is a potentiometer to which an arm is mounted that rides up and down on the slack in front of the takeup spool.  When the arm drops below a certain level the motor runs until the arm reaches a prescribed height.
-
+3D Models:
+- Freecad; can be a bit fussy.  I'll be using Fusion360 on future projects.
+- 3D printing on owned Original Prusa i3 mk2 acquired as kit from Prusa in Prague. 
 
 Results
 -------
+Image quality varies between dreadful and barely acceptable yet I enjoy seeing the people and places from long ago immensely.  
 
 Samples housed on Youtube:
+-------------------------
+Scanning underway  https://youtu.be/BP9WV82NFkA
+Sample output      https://youtu.be/8DqxQMjq3eE
+
 
 Acknowledgements
 ----------------
-
+Thanks to authors of all the projects listed above.  I've tried to acknowledge authors and their copyrights in source files.  If I've missed anything please advise and I will modify immediately.
