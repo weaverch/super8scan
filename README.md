@@ -54,7 +54,10 @@ Image quality varies between dreadful and barely acceptable yet I enjoy seeing t
 
 Samples housed on Youtube:
 -------------------------
+
 Scanning underway  https://youtu.be/BP9WV82NFkA
+
+
 Sample output      https://youtu.be/8DqxQMjq3eE
 
 
