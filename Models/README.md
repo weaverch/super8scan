@@ -26,50 +26,47 @@ Model Sets:
 
 Camera
 ------
-cameraSledV3.FCStd				Very tight fit; too long
-camera-m12-slider-mount.FCStd		Connects cam to sled
-camera-m12.FCStd				Arducam 5mp specific
+- cameraSledV3.FCStd				                Very tight fit; too long
+- camera-m12-slider-mount.FCStd		        Connects cam to sled
+- camera-m12.FCStd				                  Arducam 5mp specific
 
 Lenses
 ------
-FocusFemaleThreadedTube-LongWide.scad
-FocusMaleThreadedTube-LongWide.scad
-m12Internal.FCStd				Holds lens in MaleTube
+- FocusFemaleThreadedTube-LongWide.scad
+- FocusMaleThreadedTube-LongWide.scad
+- m12Internal.FCStd				                Holds lens in MaleTube
 
 
 Motors Gears Pulleys
 --------------------
-dcMount.fcstd					Specific to motor used
-dcMotorSlider.FCStd				Adjust belt tension
-roundbeltpulleyMotor.FCStd			For 2mm urethane belt
-roundbeltpulleySpool.FCStd			For 2mm urethane belt
+- dcMount.fcstd					                  Specific to motor used
+- dcMotorSlider.FCStd				              Adjust belt tension
+- roundbeltpulleyMotor.FCStd			          For 2mm urethane belt
+- roundbeltpulleySpool.FCStd			          For 2mm urethane belt
 
-gear-1.55shaft.FCStd				Bad idea
-gear-32x8-drive.FCStd				Bad idea
-gear-8-stepper.FCStd				For 5mm D shaft
-gearframe.FCStd					Ignore dummy gears
-gearboxshaft.FCStd
-shaftboardguide.FCStd				Stabilize driveshaft
-gearedOringRoller.FCStd			For 2x20mm O rings
+- gear-1.55shaft.FCStd				              Bad idea
+- gear-32x8-drive.FCStd				            Bad idea
+- gear-8-stepper.FCStd				              For 5mm D shaft
+- gearframe.FCStd					                Ignore dummy gears
+- gearboxshaft.FCStd
+- shaftboardguide.FCStd				            Stabilize driveshaft
+- gearedOringRoller.FCStd			            For 2x20mm O rings
 
-Stepper mount			http://www.thingiverse.com/thing:1866886
+- Stepper mount			                      http://www.thingiverse.com/thing:1866886
 
 All Other
 ---------
-SpoolMount.FCStd				Adjust board thickness
-pinchSwingArm.FCStd
-pinchfilmguide.FCStd
-crossbrace.FCStd				Brace base & vert panel
-filmsideguide.FCStd				Threads not used
-filmspoolAdapterSmaller.FCStd		Holds reels onto shafts
-gate3-top.fcstd					Mod of RPitelecine
-gate3-bottom.fcstd				Mod of RPitelecine
-takeupArm.FCStd
-takeupArmBase.FCStd				Check dimensions of pot
-takeupArmBaseShort.FCStd			Short version
-potArmspacer.FCStd				Big 8mm ID washer / guide
+- SpoolMount.FCStd				                  Adjust board thickness
+- pinchSwingArm.FCStd
+- pinchfilmguide.FCStd
+- crossbrace.FCStd				                  Brace base & vert panel
+- filmsideguide.FCStd				              Threads not used
+- filmspoolAdapterSmaller.FCStd		        Holds reels onto shafts
+- gate3-top.fcstd					                Mod of RPitelecine
+- gate3-bottom.fcstd				                Mod of RPitelecine
+- takeupArm.FCStd
+- takeupArmBase.FCStd				              Check dimensions of pot
+- takeupArmBaseShort.FCStd			            Short version
+- potArmspacer.FCStd				                Big 8mm ID washer / guide
 
-Take-up reel			http://www.thingiverse.com/thing:390502
-
-
-
+- Take-up reel			                        http://www.thingiverse.com/thing:390502
