@@ -3,8 +3,12 @@ Why the WARNING?
 
 DO NOT grab these and ship them all off to a commercial printing operation without reading the following:
 
-These models have been produced only once on my own 3d printer.  Many of them required substantial effort post-print to work.  Parts with close tolerances (threads and sliders) required extensive twisting and sliding before operating smoothly.  They have never been tested at a 3rd party printer (Shapeways e.g.) nor are they optimized to control cost at such a place.
+These models have been produced only once on my own 3d printer.  Many of them required substantial effort post-print to work.
+Parts with close tolerances (threads and sliders) required extensive twisting and sliding before operating smoothly.  They
+have never been tested at a 3rd party printer (Shapeways e.g.) nor are they optimized to control cost at such a place.
 
-Printing results (precise dimensions) will vary among printers, and close tolerances in some of these models may not work well elsewhere.  I don't know what it would cost to print all these pieces commercially, but it probably would justify buying your own printer.  There are respectable models now available for USD 300 +/-.
+Printing results (precise dimensions) will vary among printers, and close tolerances in some of these models may not work well
+elsewhere.  I don't know what it would cost to print all these pieces commercially, but it probably would justify buying your
+own printer.  There are respectable models now available for USD 300 +/-.
 
 
